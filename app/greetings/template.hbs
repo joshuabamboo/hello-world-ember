@@ -1,0 +1,22 @@
+<div>
+  <div class="col-md-3">
+    <div>Greetings</div>
+    <div>
+      title: {{input value=title}} <button {{action 'addGreeting'}}>Add</button>
+    </div>
+    <div>
+      <ul>
+        {{#each model as |greeting|}}
+          {{#link-to 'greetings.greets' greeting.id}}
+            <li>{{notebook.title}}</li>
+          {{/link-to}}
+        {{else}}
+          <div>No greetings found</div>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class='col-md-9'>
+    {{outlet}}
+  </div>
+</div>

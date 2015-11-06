@@ -11,8 +11,10 @@ module.exports = function(app) {
   var userDB = new nedb({ filename : 'users', autoload: true});
   
   usersRouter.get('/', function(req, res) {
-    res.send({
-      'users': []
+    userDB.find(req.query).exec(function(error,users){
+      res.send({
+        'users': users
+      });
     });
   });
 

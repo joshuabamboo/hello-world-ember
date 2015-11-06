@@ -4,9 +4,16 @@
       Hello, World!
     </div>
     <div class="col-md-10">
-      {{#link-to 'register'}}register{{/link-to}}
+      {{#if user}}
+        Hello, {{user.name}}
+      {{/if}}
+      {{#unless user}}
+        {{#link-to 'register'}}Register{{/link-to}};
+        {{#link-to 'login'}}Login{{/link-to}}
+      {{/unless}}
     </div>
   </div>
+
   <div class="row">
     <div>
       {{outlet}}
